@@ -1,0 +1,50 @@
+
+// Handle two columns and row reverse on mobile
+
+.mobile-viewport {
+    [data-reverse-column-mobile="yes"][data-num-of-columns="1"] {
+        .pagebuilder-column-line.pagebuilder-content-type {
+            .element-children {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+
+    [data-num-of-columns="2"] {
+        .pagebuilder-column-line.pagebuilder-content-type {
+            .element-children {
+                flex-direction: row;
+
+                .pagebuilder-column {
+                    flex: 100%;
+                    flex-basis: 40%;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                }
+            }
+        }
+    }
+
+    [data-reverse-column-mobile="yes"][data-num-of-columns="2"] {
+        .pagebuilder-column-line.pagebuilder-content-type {
+            .element-children {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}
+
+// Enable flex in admin for column & allow the column line & child elements to inherit the gap input by the user
+
+.pagebuilder-column-group .element-children.content-type-container {
+   display: flex;
+   flex-direction: column;
+}
+
+.pagebuilder-column-line.pagebuilder-content-type {
+    gap: inherit;
+
+    .element-children {
+        gap: inherit;
+    }
+}

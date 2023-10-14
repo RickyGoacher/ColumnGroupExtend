@@ -1,0 +1,27 @@
+
+/* Inherit gap input by user */
+.pagebuilder-column-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.pagebuilder-column-group .pagebuilder-column-line {
+    gap: inherit;
+}
+
+/* Handle row reverse & two column layout */
+@media screen and (max-width: 768px) {
+    [data-reverse-column-mobile="yes"][data-num-of-columns="1"] .pagebuilder-column-line {
+        flex-direction: column-reverse;
+        flex-wrap: unset;
+    }
+    [data-reverse-column-mobile="yes"][data-num-of-columns="1"] .pagebuilder-column {
+        width: 100% !important;
+    }
+    [data-num-of-columns="2"] .pagebuilder-column-line .pagebuilder-column {
+        flex-basis: 40%;
+    }
+    [data-reverse-column-mobile="yes"][data-num-of-columns="2"] .pagebuilder-column-line {
+        flex-direction: row-reverse;
+    }
+}
